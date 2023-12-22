@@ -1,9 +1,12 @@
 package com.natureapi.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 @Entity
 public class User {
@@ -13,10 +16,22 @@ public class User {
 	private long id;
 	private String firstname;
 	private String lastName;
+	private String email;
+	private String password;
 	private long age;
 	private String sexe;
 	
+	@Enumerated(EnumType.STRING)
+	private UserRole role;
+	@Version
+	private int version;
 	
+	
+	
+	public enum UserRole{
+		ADMIN,
+		USER
+	}
 	
 	public long getId() {
 		return id;
@@ -50,6 +65,30 @@ public class User {
 	}
 	public User() {
 		super();
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public UserRole getRole() {
+		return role;
+	}
+	public void setRole(UserRole role) {
+		this.role = role;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	
 	

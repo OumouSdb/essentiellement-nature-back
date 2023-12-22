@@ -10,10 +10,10 @@ import com.natureapi.entities.User;
 
 public interface UserService{
 	
-	public User save();
-	public User saveOrUpdate();
+	public User save(User u);
+	public User saveOrUpdate(User u);
 	public List<User> getAll();
-	public User deleteById(long id);
+	public void deleteById(long id);
 	public User getById(long id);
 	
 

@@ -1,30 +1,36 @@
 package com.natureapi.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.natureapi.entities.User;
-import com.natureapi.repository.UserRepository;
+import com.natureapi.repository.userRepository;
+
 
 @Service
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
-	UserRepository userRepo;
+	userRepository userRepo;
 	
 	User u = new User();
 	
 	@Override
-	public User save() {
+	public User save(User u) {
+		if(u.getId() == 0) {
+		u =	userRepo.save(u);
+		}else {
+		u =	userRepo.saveAndFlush(u);
+		}
 		
-		userRepo.save(u);
 		return u;
 	}
 
 	@Override
-	public User saveOrUpdate() {
+	public User saveOrUpdate(User u) {
 		if(u.getId() != 0) {
 			userRepo.saveAndFlush(u);
 		}
@@ -33,16 +39,20 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> getAll() {
-		userRepo.findAll();
-		
-		return (List<User>) u;
+	List<User> user = userRepo.findAll();
+	List<User> result = new ArrayList<User>();
+			
+		for(User u : user) {
+			result.add(u);
+		}
+		return  result;
 	}
 
 	@Override
-	public User deleteById(long id) {
+	public void deleteById(long id) {
 		
-		userRepo.deleteById(u.getId());
-		return null;
+		userRepo.deleteById(id);
+		
 	}
 
 	@Override
