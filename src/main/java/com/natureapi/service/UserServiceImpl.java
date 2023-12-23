@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	userRepository userRepo;
 	
-	User u = new User();
+	
 	
 	@Override
 	public User save(User u) {
@@ -57,8 +57,26 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User getById(long id) {
+		User u = new User();
 		userRepo.getById(u.getId());
 		return u;
+	}
+
+	@Override
+	public boolean checkLogin(String email, String pass) {
+	
+		User u = userRepo.findByEmail(email);
+		
+		 if (u != null) {
+		        if (email != null && pass.equals(u.getPassword())) {
+		            return true;
+		        } else {
+		            return false;
+		        }
+		    } else {
+		        return false;
+		    }
+		
 	}
 
 }

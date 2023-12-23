@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.natureapi.entities.User;
 import com.natureapi.service.UserService;
-import com.natureapi.service.UserServiceImpl;
+
 
 @RestController
 @RequestMapping("/users")
@@ -29,6 +28,9 @@ public class UserController{
 	
 	@Autowired
 	private UserService userService;
+	
+	
+	
 	
 	@GetMapping(value = "/", produces = "application/json")
 	public List<User> findAll() throws Exception{
@@ -44,6 +46,14 @@ public class UserController{
 	public ResponseEntity<User> save(@RequestBody User u) {
 		u =  userService.save(u);
 		return ResponseEntity.status(HttpStatus.CREATED).body(u);
+	}
+	
+	@PostMapping(value="/login", consumes="application/json", produces="application/json")
+	public boolean checklogin(@RequestBody String email, String pass){
+
+		
+		return	userService.checkLogin(email, pass);
+		
 	}
 	
 	@PutMapping(value="/{id}", consumes="application/json", produces="application/json")

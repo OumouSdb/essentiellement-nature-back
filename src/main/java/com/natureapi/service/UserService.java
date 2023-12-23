@@ -14,7 +14,8 @@ public interface UserService{
 	public User saveOrUpdate(User u);
 	public List<User> getAll();
 	public void deleteById(long id);
-	public User getById(long id);
+	public User getById(long id); 
+	public boolean checkLogin(String email, String pass);
 	
 
 }
