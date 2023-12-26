@@ -2,10 +2,15 @@ package com.natureapi.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.natureapi.dto.DtoTools;
+import com.natureapi.dto.LoginDto;
+import com.natureapi.dto.UserDto;
 import com.natureapi.entities.User;
 import com.natureapi.repository.userRepository;
 
@@ -16,34 +21,36 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	userRepository userRepo;
 	
-	
-	
 	@Override
-	public User save(User u) {
+	public UserDto save(UserDto uDto) {
+		
+		User u = DtoTools.convert(uDto, User.class);
 		if(u.getId() == 0) {
 		u =	userRepo.save(u);
 		}else {
 		u =	userRepo.saveAndFlush(u);
 		}
 		
-		return u;
+		return uDto;
 	}
 
 	@Override
-	public User saveOrUpdate(User u) {
-		if(u.getId() != 0) {
+	public UserDto saveOrUpdate(UserDto uDto) {
+		if(uDto.getId() != 0) {
+			
+			User u = DtoTools.convert(uDto, User.class);
 			userRepo.saveAndFlush(u);
 		}
-		return u;
+		return uDto;
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<UserDto> getAll() {
 	List<User> user = userRepo.findAll();
-	List<User> result = new ArrayList<User>();
+	List<UserDto> result = new ArrayList<UserDto>();
 			
 		for(User u : user) {
-			result.add(u);
+			result.add(DtoTools.convert(u, UserDto.class));
 		}
 		return  result;
 	}
@@ -56,27 +63,27 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User getById(long id) {
-		User u = new User();
-		userRepo.getById(u.getId());
-		return u;
+	public UserDto findById(long id) {
+	Optional<User> u = userRepo.findById(id);
+		if(u.isPresent()) {
+			return DtoTools.convert(u.get(), UserDto.class);
+		}
+		return null;
 	}
 
 	@Override
-	public boolean checkLogin(String email, String pass) {
+	public LoginDto checkLogin(LoginDto l) throws Exception{
 	
-		User u = userRepo.findByEmail(email);
+		User u = userRepo.findByEmail(l.getEmail());
 		
 		 if (u != null) {
-		        if (email != null && pass.equals(u.getPassword())) {
-		            return true;
-		        } else {
-		            return false;
+		        if (l.getEmail() != null && l.getPassword().equals(u.getPassword())) {
+		            return l;
+		        }else {
+		        	throw new Exception("Error : invalid credentials !");
 		        }
-		    } else {
-		        return false;
-		    }
 		
 	}
-
+ throw new Exception("Error : invalid credentials !");
+}
 }

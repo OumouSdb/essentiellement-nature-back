@@ -5,17 +5,19 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.natureapi.dto.LoginDto;
+import com.natureapi.dto.UserDto;
 import com.natureapi.entities.User;
 
 
 public interface UserService{
 	
-	public User save(User u);
-	public User saveOrUpdate(User u);
-	public List<User> getAll();
+	public UserDto save(UserDto uDto);
+	public UserDto saveOrUpdate(UserDto u);
+	public List<UserDto> getAll();
 	public void deleteById(long id);
-	public User getById(long id); 
-	public boolean checkLogin(String email, String pass);
+	public UserDto findById(long id); 
+	public LoginDto checkLogin(LoginDto l) throws Exception;
 	
 
 }

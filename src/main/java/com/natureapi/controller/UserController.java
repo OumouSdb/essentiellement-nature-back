@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.natureapi.dto.LoginDto;
+import com.natureapi.dto.UserDto;
 import com.natureapi.entities.User;
 import com.natureapi.service.UserService;
 
@@ -30,34 +32,33 @@ public class UserController{
 	private UserService userService;
 	
 	
-	
-	
+
 	@GetMapping(value = "/", produces = "application/json")
-	public List<User> findAll() throws Exception{
+	public List<UserDto> findAll() throws Exception{
 		return userService.getAll();
 	}
 	
 	@GetMapping("/users/{id}")
-	public User findById(@PathParam("id") long id){
-		return userService.getById(id);
+	public UserDto findById(@PathVariable("id") long id){
+		return userService.findById(id);
 	}
 	
 	@PostMapping("/")
-	public ResponseEntity<User> save(@RequestBody User u) {
+	public ResponseEntity<UserDto> save(@RequestBody UserDto u) {
 		u =  userService.save(u);
 		return ResponseEntity.status(HttpStatus.CREATED).body(u);
 	}
 	
 	@PostMapping(value="/login", consumes="application/json", produces="application/json")
-	public boolean checklogin(@RequestBody String email, String pass){
+	public LoginDto checklogin(@RequestBody LoginDto l) throws Exception{
 
 		
-		return	userService.checkLogin(email, pass);
+		return	userService.checkLogin(l);
 		
 	}
 	
 	@PutMapping(value="/{id}", consumes="application/json", produces="application/json")
-	public User update(@RequestBody User u){
+	public UserDto update(@RequestBody UserDto u){
 		
 		return userService.saveOrUpdate(u);
 

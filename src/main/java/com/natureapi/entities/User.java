@@ -15,24 +15,24 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
+	 
 	private long id;
-	@JsonIgnore
+	 
 	private String firstname;
-	@JsonIgnore
+	 
 	private String lastName;
 	
 	private String email;
 	private String password;
-	@JsonIgnore
+	 
 	private long age;
-	@JsonIgnore
+	 
 	private String sexe;
-	@JsonIgnore
+	 
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 	@Version
-	@JsonIgnore
+	 
 	private int version;
 	
 	
