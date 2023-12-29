@@ -1,6 +1,7 @@
 package com.natureapi.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.websocket.server.PathParam;
 
@@ -38,7 +39,7 @@ public class UserController{
 		return userService.getAll();
 	}
 	
-	@GetMapping("/users/{id}")
+	@GetMapping("/{id}")
 	public UserDto findById(@PathVariable("id") long id){
 		return userService.findById(id);
 	}

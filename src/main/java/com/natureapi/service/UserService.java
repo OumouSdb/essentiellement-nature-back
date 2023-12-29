@@ -1,6 +1,7 @@
 package com.natureapi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import com.natureapi.entities.User;
 
 public interface UserService{
 	
-	public UserDto save(UserDto uDto);
+	public UserDto save(UserDto u);
 	public UserDto saveOrUpdate(UserDto u);
 	public List<UserDto> getAll();
 	public void deleteById(long id);

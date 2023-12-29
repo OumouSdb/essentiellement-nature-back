@@ -12,14 +12,14 @@ import com.natureapi.dto.DtoTools;
 import com.natureapi.dto.LoginDto;
 import com.natureapi.dto.UserDto;
 import com.natureapi.entities.User;
-import com.natureapi.repository.userRepository;
+import com.natureapi.repository.UserRepository;
 
 
 @Service
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
-	userRepository userRepo;
+	UserRepository userRepo;
 	
 	@Override
 	public UserDto save(UserDto uDto) {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.natureapi.entities.User;
 
 @Repository
-public interface userRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{
 	
 	@Query("FROM User u WHERE u.email = :email")
 	User findByEmail(@Param("email") String email);
