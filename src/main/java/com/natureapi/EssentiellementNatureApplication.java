@@ -20,29 +20,29 @@ public class EssentiellementNatureApplication {
         return new ModelMapper();
     }
 	 
-	 public void addCorsMappings(CorsRegistry registry) {
-	     registry.addMapping("/**")
-	         .allowedOrigins("*")
-	         .allowedMethods("GET","POST","PUT","DELETE","PATCH","OPTIONS");
-	 }
+//	 public void addCorsMappings(CorsRegistry registry) {
+//	     registry.addMapping("/**")
+//	         .allowedOrigins("*")
+//	         .allowedMethods("GET","POST","PUT","DELETE","PATCH","OPTIONS");
+//	 }
 	 
-//		@Bean
-//		public WebMvcConfigurer myMvcConfigurer() {
-//			return new WebMvcConfigurer() {
-//				//AJOUT D'UN FILTRE
-//			
-//
-//				// CROS ORIGIN
-//				@Override
-//				public void addCorsMappings(CorsRegistry registry) {
-//					//String[] allowedUrls = frontBaseUrl.split(";");
-//					registry.addMapping("/**")
-//					  .allowedOrigins("*")
-//					  //.allowedOrigins(allowedUrls) //en prod
-//					  .allowedMethods("GET","POST","PUT","DELETE","PATCH","OPTIONS");
-//				}
-//			
-//				
-//			};
-//		}
+		@Bean
+		public WebMvcConfigurer myMvcConfigurer() {
+			return new WebMvcConfigurer() {
+				//AJOUT D'UN FILTRE
+			
+
+				// CROS ORIGIN
+				@Override
+				public void addCorsMappings(CorsRegistry registry) {
+					//String[] allowedUrls = frontBaseUrl.split(";");
+					registry.addMapping("/**")
+					  .allowedOrigins("*")
+					  //.allowedOrigins(allowedUrls) //en prod
+					  .allowedMethods("GET","POST","PUT","DELETE","PATCH","OPTIONS");
+				}
+			
+				
+			};
+		}
 }

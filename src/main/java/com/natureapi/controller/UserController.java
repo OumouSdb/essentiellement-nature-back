@@ -44,7 +44,7 @@ public class UserController{
 		return userService.findById(id);
 	}
 	
-	@PostMapping("/")
+	@PostMapping(value="/", consumes="application/json", produces = "application/json")
 	public ResponseEntity<UserDto> save(@RequestBody UserDto u) {
 		u =  userService.save(u);
 		return ResponseEntity.status(HttpStatus.CREATED).body(u);
