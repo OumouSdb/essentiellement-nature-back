@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.natureapi.dto.MessagerieDto;
+import com.natureapi.entities.Messagerie;
 import com.natureapi.repository.MessagerieRepository;
 
 @RestController
@@ -32,7 +33,7 @@ public class MessagerieController {
 	}
 	 
 	@GetMapping(produces = "application/json")
-	public List<MessagerieDto> findAll() throws Exception{
+	public List<Messagerie> findAll() throws Exception{
 		
 		return messagerieRepository.findAll();
 	}
