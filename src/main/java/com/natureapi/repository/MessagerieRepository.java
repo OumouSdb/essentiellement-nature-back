@@ -9,7 +9,7 @@ import com.natureapi.entities.Messagerie;
 @Repository
 public interface MessagerieRepository extends JpaRepository<Messagerie, Long>{
 
-	void save(MessagerieDto mDto);
+	public MessagerieDto save(MessagerieDto mDto);
 
 	
 

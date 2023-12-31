@@ -1,10 +1,11 @@
 package com.natureapi.entities;
 
-import javax.annotation.Generated;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 @Entity
 public class Messagerie {
@@ -16,6 +17,7 @@ public class Messagerie {
 	private String firstName;
 	private String email;
 	private String message;
+	@Version
 	private int version;
 	
 	public long getId() {

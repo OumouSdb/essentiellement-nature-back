@@ -2,15 +2,11 @@ package com.natureapi.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.natureapi.dto.DtoTools;
 import com.natureapi.dto.MessagerieDto;
-import com.natureapi.dto.UserDto;
 import com.natureapi.entities.Messagerie;
-import com.natureapi.entities.User;
 import com.natureapi.repository.MessagerieRepository;
 
 @Service
