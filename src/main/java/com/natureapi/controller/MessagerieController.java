@@ -26,7 +26,7 @@ public class MessagerieController {
 	@Autowired
 	private MessagerieService messagerieService;
 	
-	@PostMapping(consumes="application/json", produces = "application/json")
+	@PostMapping(value="/save", consumes="application/json", produces = "application/json")
 	public ResponseEntity<MessagerieDto> save(@RequestBody MessagerieDto mDto){
 		
 	mDto =	messagerieService.save(mDto);
