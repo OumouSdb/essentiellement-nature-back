@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.natureapi.entities.Appointment.Categorie;
@@ -15,8 +17,9 @@ public class Document {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String pdf;
-	@OneToOne
-	private long userId;
+	@ManyToOne
+	@JoinTable(name= "userId")
+	private User userId;
 	private Categorie professionnal;
 	private long version;
 	
@@ -32,13 +35,15 @@ public class Document {
 	public void setPdf(String pdf) {
 		this.pdf = pdf;
 	}
-	public long getUserId() {
+
+	
+
+	public User getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
-
 	public long getVersion() {
 		return version;
 	}

@@ -8,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
 
@@ -23,7 +24,8 @@ public class Appointment {
 	private Date appointDate;
 	
 	@ManyToOne
-	private long userId;
+	@JoinTable(name = "userId")
+	private User userId;
 	
 	
 	
@@ -73,15 +75,18 @@ public class Appointment {
 	}
 
 
-	public long getUserId() {
+
+
+
+
+	public User getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(long userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
-
 
 
 	public Appointment() {

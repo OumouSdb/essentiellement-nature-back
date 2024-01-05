@@ -27,7 +27,7 @@ public class User {
 	 
 	private long age;
 	 
-	private String sexe;
+	private String genre;
 	 
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
@@ -66,12 +66,7 @@ public class User {
 	public void setAge(long age) {
 		this.age = age;
 	}
-	public String getSexe() {
-		return sexe;
-	}
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
-	}
+	
 	public User() {
 		super();
 	}
@@ -98,6 +93,12 @@ public class User {
 	}
 	public void setVersion(int version) {
 		this.version = version;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
 	

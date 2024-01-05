@@ -14,6 +14,8 @@ public class Article {
 	private String title;
 	private String image_name;
 	private String texte;
+	private long version;
+	
 	public long getId() {
 		return id;
 	}
@@ -40,6 +42,16 @@ public class Article {
 	}
 	public Article() {
 		super();
+	}
+	public long getVersion() {
+		return version;
+	}
+	public void setVersion(long version) {
+		this.version = version;
+	}
+	public void setFilePath(String filePath) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
@@ -15,8 +17,9 @@ public class Messagerie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String email;
-	@OneToMany
-	private long userId;
+	@ManyToOne
+	@JoinTable(name ="userId")
+	private User userId;
 	private String message;
 	
 	
@@ -54,10 +57,10 @@ public class Messagerie {
 	public Messagerie() {
 		super();
 	}
-	public long getUserId() {
+	public User getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	

@@ -24,7 +24,7 @@ public class UserDto {
 	 
 	private long age;
 	 
-	private String sexe;
+	private String genre;
 	 
 	
 	private UserRole role;
@@ -63,11 +63,12 @@ public class UserDto {
 	public void setAge(long age) {
 		this.age = age;
 	}
-	public String getSexe() {
-		return sexe;
+
+	public String getGenre() {
+		return genre;
 	}
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	public UserDto() {
 		super();
