@@ -17,9 +17,7 @@ public class Messagerie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String email;
-	@ManyToOne
-	@JoinTable(name ="userId")
-	private User userId;
+	private long userId;
 	private String message;
 	
 	
@@ -57,12 +55,12 @@ public class Messagerie {
 	public Messagerie() {
 		super();
 	}
-	public User getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(User userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	
+
 	
 }

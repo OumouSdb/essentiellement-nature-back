@@ -26,7 +26,6 @@ import com.natureapi.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin
 public class UserController{
 	
 	@Autowired

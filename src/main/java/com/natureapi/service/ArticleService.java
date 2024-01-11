@@ -15,6 +15,7 @@ public interface ArticleService {
 	public List<ArticleDto> findAll();
 	
 	
-	public ArticleDto save(String title, MultipartFile image, String texte);
+public ArticleDto save(String title, MultipartFile image, String texte);
+	//public ArticleDto save(String formData);
 	
 }

@@ -20,7 +20,6 @@ import com.natureapi.service.MessagerieService;
 
 @RestController
 @RequestMapping("/messagerie")
-@CrossOrigin
 public class MessagerieController {
 	
 	@Autowired

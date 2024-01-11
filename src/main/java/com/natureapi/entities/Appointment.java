@@ -22,10 +22,7 @@ public class Appointment {
 	@Enumerated(EnumType.STRING)
 	private Categorie category;
 	private Date appointDate;
-	
-	@ManyToOne
-	@JoinTable(name = "userId")
-	private User userId;
+	private long userId;
 	
 	
 	
@@ -77,14 +74,12 @@ public class Appointment {
 
 
 
-
-
-	public User getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(User userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 

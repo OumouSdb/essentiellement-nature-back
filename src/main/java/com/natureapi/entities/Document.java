@@ -17,9 +17,7 @@ public class Document {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String pdf;
-	@ManyToOne
-	@JoinTable(name= "userId")
-	private User userId;
+	private long userId;
 	private Categorie professionnal;
 	private long version;
 	
@@ -38,12 +36,13 @@ public class Document {
 
 	
 
-	public User getUserId() {
+public long getUserId() {
 		return userId;
 	}
-	public void setUserId(User userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
+
 	public long getVersion() {
 		return version;
 	}

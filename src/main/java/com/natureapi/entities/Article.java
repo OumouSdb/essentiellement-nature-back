@@ -1,5 +1,6 @@
 package com.natureapi.entities;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,7 @@ public class Article {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String title;
-	private String image_name;
+	private String imageName;
 	private String texte;
 	private long version;
 	
@@ -28,11 +29,12 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getImage_name() {
-		return image_name;
+
+	public String getImageName() {
+		return imageName;
 	}
-	public void setImage_name(String image_name) {
-		this.image_name = image_name;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 	public String getTexte() {
 		return texte;

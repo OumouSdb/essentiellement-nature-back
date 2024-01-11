@@ -27,7 +27,6 @@ import com.natureapi.service.MessagerieService;
 
 @RestController
 @RequestMapping("/article")
-@CrossOrigin
 public class ArticleController {
 	
 	@Autowired
@@ -44,6 +43,12 @@ public class ArticleController {
 
         return ResponseEntity.ok(savedArticle);
     }
+	
+//	@PostMapping("/save")
+//	public ResponseEntity<ArticleDto> saveArticle(@RequestParam("formData") String formData) {
+//	    ArticleDto savedArticle = articleService.save(formData);
+//	    return ResponseEntity.ok(savedArticle);
+//	}
 	 
 	@GetMapping(produces = "application/json")
 	public List<ArticleDto> findAll() throws Exception{

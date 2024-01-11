@@ -57,7 +57,7 @@ public class ArticleServiceImpl implements ArticleService{
 
             if (image != null && !image.isEmpty()) {
                 byte[] imageBytes = image.getBytes();
-                article.setImage_name(image.getOriginalFilename()); // Sauvegarder le nom du fichier
+                article.setImageName(image.getOriginalFilename()); // Sauvegarder le nom du fichier
                 // Enregistrez le reste des données du fichier ou stockez-le selon vos besoins
             }
 
@@ -69,6 +69,30 @@ public class ArticleServiceImpl implements ArticleService{
             throw new RuntimeException("Erreur lors du traitement du fichier", e);
         }
     }
+	
+//	@Override
+//	public ArticleDto save(String formData) {
+//	    try {
+//	        ObjectMapper objectMapper = new ObjectMapper();
+//	        JsonNode rootNode = objectMapper.readTree(formData);
+//
+//	        String title = rootNode.path("title").asText();
+//	        String texte = rootNode.path("texte").asText();
+//
+//	        Article article = new Article();
+//	        article.setTitle(title);
+//	        article.setTexte(texte);
+//
+//	        // Ajoutez la logique pour traiter l'image ici
+//	        // ...
+//
+//	        article = articleRepository.save(article);
+//
+//	        return DtoTools.convert(article, ArticleDto.class);
+//	    } catch (IOException e) {
+//	        throw new RuntimeException("Erreur lors du traitement du fichier", e);
+//	    }
+//	}
 
 //    private ArticleDto convertToDto(Article article) {
 //        ArticleDto articleDto = new ArticleDto();
